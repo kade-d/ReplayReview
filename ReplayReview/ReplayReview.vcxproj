@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{fb6b8680-2f9f-466d-b6b7-9ed432c393ed}</ProjectGuid>
+    <RootNamespace>VodReviewPlugin</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>ReplayReviewPlugin</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="BakkesMod.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="BakkesMod.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)plugins\</OutDir>
+    <IntDir>$(SolutionDir)build\.intermediates\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)plugins\</OutDir>
+    <IntDir>$(SolutionDir)build\.intermediates\$(Configuration)\</IntDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>C:\src\RenderingTools-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\RenderingTools-master\Extra\CanvasExtensions.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Extra\RenderingAssistant.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Extra\RenderingMath.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Extra\WrapperStructsExtensions.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\Chevron.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\Circle.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\Circle2D.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\Cone.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\Cube.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\Cylinder.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\Frustum.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\Grid.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\Line.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\Matrix3.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\Plane.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\Sphere.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\Triangle.cpp" />
+    <ClCompile Include="..\..\RenderingTools-master\Objects\VisualCamera.cpp" />
+    <ClCompile Include="CameraFocusController.cpp" />
+    <ClCompile Include="CrosshairController.cpp" />
+    <ClCompile Include="HideHudController.cpp" />
+    <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="PlayerBoostController.cpp" />
+    <ClCompile Include="PlayLineController.cpp" />
+    <ClCompile Include="SetCameraController.cpp" />
+    <ClCompile Include="ReplayReview.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\RenderingTools-master\Extra\CanvasExtensions.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Extra\RenderingAssistant.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Extra\RenderingMath.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Extra\WrapperStructsExtensions.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\Chevron.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\Circle.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\Circle2D.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\Cone.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\Cube.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\Cylinder.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\Frustum.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\Grid.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\Line.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\Matrix3.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\Plane.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\Sphere.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\Triangle.h" />
+    <ClInclude Include="..\..\RenderingTools-master\Objects\VisualCamera.h" />
+    <ClInclude Include="..\..\RenderingTools-master\RenderingTools.h" />
+    <ClInclude Include="CameraFocusController.h" />
+    <ClInclude Include="ControllerBase.h" />
+    <ClInclude Include="CrosshairController.h" />
+    <ClInclude Include="HideHudController.h" />
+    <ClInclude Include="HUD.h" />
+    <ClInclude Include="PlayerBoostController.h" />
+    <ClInclude Include="PlayLineController.h" />
+    <ClInclude Include="SetCameraController.h" />
+    <ClInclude Include="ReplayReview.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ReplayReview.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
